@@ -3,11 +3,9 @@ class User < ActiveRecord::Base
 
   validates :name, presence: true, on: :update
 
-  validates :email, presence: true, uniqueness: true
-
-  # look for gem:validates_email_format_of :email
-  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
-
+  validates :email, presence: true, uniqueness: true,
+             email_format: { message: 'has invalid format' }
+             
   validates :password, confirmation: true, length: { minimum: 3 }
   attr_accessor :password, :password_confirmation
 end
