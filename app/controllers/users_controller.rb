@@ -6,7 +6,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      # handle a successfull save
+      flash[:success] = 'Welcome!'
+      redirect_to root_path
     else
       render 'new'
     end
