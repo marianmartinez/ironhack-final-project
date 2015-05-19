@@ -10,5 +10,8 @@ describe User do
   it { should validate_uniqueness_of(:email) }
   it { should ensure_length_of(:password).is_at_least(3) }
   it { should validate_confirmation_of(:password) }
+  it { should allow_value('example@domain.com').for(:email) }
+  it { should_not allow_value("base@example").for(:email) }
+  it { should_not allow_value("blah").for(:email) }
 
 end
