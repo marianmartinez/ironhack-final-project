@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :tracks
   authenticates_with_sorcery!
 
   validates :name, presence: true, on: :update
@@ -9,6 +10,9 @@ class User < ActiveRecord::Base
   validates :password, confirmation: true, length: { minimum: 3 }
   attr_accessor :password, :password_confirmation
   def admin?
-    name == 'Marian'
+    email == 'marian.mtnz@gmail.com'
+  end
+  def self.admin
+    find_by email: 'marian.mtnz@gmail.com'
   end
 end
