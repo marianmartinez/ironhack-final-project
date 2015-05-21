@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   private
 
   def not_authenticated
-    flash[:warning] = 'You have to authenticate to access this page.'
-    redirect_to new_user_path
+    #flash[:warning] = 'You have to authenticate to access this page.'
+    redirect_to login_path
   end
 end

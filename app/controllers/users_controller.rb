@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
-  skip_before_action :require_login, only: [:new, :create]
+  skip_before_action :require_login, only: [:new, :create, :home]
   before_action :set_user, only: [:show]
   def new
     @user = User.new
+    render :layout => "empty"
   end
 
   def show
@@ -17,6 +18,18 @@ class UsersController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def edit
+
+  end
+
+  def update
+
+  end
+
+  def destroy
+    
   end
 
   private

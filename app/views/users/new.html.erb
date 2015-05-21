@@ -1,23 +1,29 @@
-<h1>Registration</h1>
+<div class="middle-box text-center loginscreen   animated fadeInDown">
+  <div>
+      <div>
+          <h1 class="logo-name">SS</h1>
+      </div>
+      <h3>Register to Skillstep</h3>
+      <p>Create account to see it in action.</p>
+      <%= form_for @user, class: 'm-t' do |f| %>
+      <%= render partial: 'shared/error_messages' %>
+          <div class="form-group">
+            <%= f.text_field :name, class: 'form-control', placeholder: 'Name', required: true %>
+          </div>
+          <div class="form-group">
+            <%= f.email_field :email, class: 'form-control', placeholder: 'Email', required: true %>
+          </div>
+          <div class="form-group">
+            <%= f.password_field :password, class: 'form-control', placeholder: 'Password', required: true %>
+          </div>
+          <div class="form-group">
+            <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'Password confirmation', required: true %>
+          </div>
+          <%= f.submit 'Register', class: 'btn btn-primary block full-width m-b' %>
 
-<%= form_for @user do |f| %>
-<%= render partial: 'shared/error_messages' %>
-  <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control', required: true %>
+          <p class="text-muted text-center"><small>Already have an account?</small></p>
+          <%= link_to "Login", login_path, class: 'btn btn-sm btn-white btn-block' %>
+      <% end %>
+      <p class="m-t"> <small>Skillstep &copy; 2015</small> </p>
   </div>
-
-  <div class="form-group">
-    <%= f.label :email %>
-    <%= f.email_field :email, class: 'form-control', required: true %>
-  </div>
-  <div class="form-group">
-    <%= f.label :password %>
-    <%= f.password_field :password, class: 'form-control', required: true %>
-  </div>
-  <div class="form-group">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, class: 'form-control', required: true %>
-  </div>
-  <%= f.submit 'Register', class: 'btn btn-primary btn-lg' %>
-<% end %>
+</div>
