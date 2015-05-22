@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :require_login, only: [:new, :create, :home]
-  before_action :set_user, only: [:show]
+  before_action :set_user, only: [:show, :edit, :update]
   def new
     @user = User.new
     render :layout => "empty"
@@ -21,7 +21,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
@@ -29,7 +28,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    
+
   end
 
   private
