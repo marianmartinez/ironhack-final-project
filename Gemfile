@@ -38,6 +38,7 @@ group :production do
 end
 
 group :development, :test do
+  gem 'ffaker'
   gem 'quiet_assets'
   gem 'pry-rails'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -50,7 +51,6 @@ end
 group :test do
   gem 'rspec-rails'
   gem "factory_girl_rails"
-  gem 'ffaker'
   gem "shoulda-matchers"
 end
 
