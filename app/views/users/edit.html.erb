@@ -29,7 +29,7 @@
 
      <div class="form-group">
         <%= f.label :picture %>
-        <p><%= image_tag(@user.picture, :width => 90, :class => 'img-circle') if @user.picture.present? %></p>
+        <p><%= image_tag(@user.picture.medium_thumb, :width => 90, :class => 'img-circle') %></p>
         <%= f.file_field :picture %>
     </div>
 

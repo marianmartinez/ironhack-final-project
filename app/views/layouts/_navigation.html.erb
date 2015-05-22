@@ -5,8 +5,8 @@
         <div class="dropdown profile-element">
           <%= link_to user_path(current_user) do %>
             <span>
-            <%= image_tag(current_user.picture,
-                        :class => 'img-circle') if current_user.picture.present? %>
+            <%= image_tag(current_user.picture.thumb,
+                        :class => 'img-circle') %>
             </span>
             <span class="clear">
                 <span class="block m-t-xs">
