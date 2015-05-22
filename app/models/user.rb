@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :tracks
   authenticates_with_sorcery!
+  mount_uploader :picture, PictureUploader
 
   validates :name, presence: true, on: :update
 
