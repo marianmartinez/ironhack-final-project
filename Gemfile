@@ -28,6 +28,14 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.7'
 gem 'sorcery'
 gem 'validates_email_format_of'
+
+#Image uploader
+gem 'carrierwave',             '0.10.0'
+#Image resizing
+gem 'mini_magick',             '3.8.0'
+#Ruby cloud services library for upload images in production.
+gem 'fog',                     '1.23.0'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
