@@ -12,7 +12,9 @@
       <li class="dropdown">
         <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown" aria-expanded="false">
             <span class="user-name"><%= current_user.name %> <i class="fa fa-angle-down"></i></span>
-            <img alt="image" class="img-circle" src="<%= image_url 'a4.jpg' %>" width="40" height="40" alt=""/>
+            <%= image_tag(current_user.picture,
+                        :width => 40,
+                        :class => 'img-circle') if current_user.picture.present? %>
         </a>
         <ul class="dropdown-menu animated fadeInRight m-t-xs">
 

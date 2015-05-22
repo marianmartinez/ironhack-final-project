@@ -5,7 +5,8 @@
         <div class="dropdown profile-element">
           <%= link_to user_path(current_user) do %>
             <span>
-              <img alt="image" class="img-circle" src="<%= image_url 'a4.jpg' %>"/>
+            <%= image_tag(current_user.picture,
+                        :class => 'img-circle') if current_user.picture.present? %>
             </span>
             <span class="clear">
                 <span class="block m-t-xs">
