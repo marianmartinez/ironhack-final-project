@@ -7,23 +7,31 @@
     <%= form_for(@user, html: { multipart: true }) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 
-      <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control' %>
-
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
-
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
-
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
-
-      <div class="img-circle">
-        <%= f.label :picture %>
-        <%= image_tag(@user.picture, :width => 60) if @user.picture.present? %>
-        <%= f.file_field :picture %>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
       </div>
+
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password %>
+        <%= f.password_field :password, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password_confirmation, "Confirmation" %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
+     </div>
+
+     <div class="form-group">
+        <%= f.label :picture %>
+        <p><%= image_tag(@user.picture, :width => 90, :class => 'img-circle') if @user.picture.present? %></p>
+        <%= f.file_field :picture %>
+    </div>
 
       <%= f.submit "Save changes", class: "btn btn-primary" %>
     <% end %>
