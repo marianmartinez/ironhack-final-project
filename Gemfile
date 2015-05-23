@@ -36,6 +36,8 @@ gem 'mini_magick',             '3.8.0'
 #Ruby cloud services library for upload images in production.
 gem 'fog',                     '1.23.0'
 
+#GoogleBooks Ruby wrapper
+gem 'googlebooks'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
