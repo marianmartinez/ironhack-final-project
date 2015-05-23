@@ -1,20 +1,54 @@
 <% provide(:title, "Search") %>
-<div class="wrapper wrapper-content animated fadeInRight">
+<div class="wrapper wrapper-content">
   <div class="row">
     <div class="col-lg-12">
-        <div class="ibox float-e-margins">
-          <div class="ibox-content">
-            <h2>
-            </h2>
-            <%= render partial: 'pages/search_form' %>
-            <% if @resources %>
-              <%= @resources.count %> results found for: <span class="text-navy">“<%= @query_word %>”</span>
-              <% @resources.each do |resource| %>
-                <%= render partial: 'pages/search_item', locals: { resource: resource }  %>
-              <% end %>
-            <% end %>
-        </div>
-      </div>
+      <%= render partial: 'pages/search_form' %>
     </div>
   </div>
+  <br />
+<div class="row">
+<div class="col-lg-3">
+    <div class="ibox float-e-margins">
+        <div class="ibox-content">
+            <div class="file-manager">
+                <h5>Show:</h5>
+                <a href="#" class="file-control active">Books</a>
+                <a href="#" class="file-control">Courses</a>
+                <a href="#" class="file-control">MOOCs</a>
+                <a href="#" class="file-control">Videos</a>
+                <div class="hr-line-dashed"></div>
+
+                <h5>Tracks</h5>
+                <ul class="folder-list" style="padding: 0">
+                    <li><a href=""><i class="fa fa-square"></i> Web development</a></li>
+                    <li><a href=""><i class="fa fa-square"></i> UX</a></li>
+                    <li><a href=""><i class="fa fa-square"></i> Web design</a></li>
+                    <li><a href=""><i class="fa fa-square"></i> Marketing online</a></li>
+                </ul>
+                <h5 class="tag-title">Goals</h5>
+                <ul class="tag-list" style="padding: 0">
+                    <li><a href="">Ruby</a></li>
+                    <li><a href="">Javascript</a></li>
+                    <li><a href="">Photoshop</a></li>
+                    <li><a href="">SEO basics</a></li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-lg-9 animated fadeInRight">
+<div class="row">
+<div class="col-lg-12">
+  <% if @resources.present? %>
+    <%= @resources.count %> results found for: <span class="text-navy">“<%= @query_word %>”</span>
+    <% @resources.each do |resource| %>
+      <%= render partial: 'pages/search_item', locals: { resource: resource }  %>
+    <% end %>
+  <% end %>
+
+</div>
+</div>
+</div>
+</div>
 </div>
