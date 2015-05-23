@@ -3,8 +3,8 @@
         <a href="#">
             <span class="corner"></span>
 
-            <div class="image">
-              <img class="pull-left width-3" src="<%= resource.image_link(:zoom => 2) %>" alt="Resource item">
+            <div class="image" style="height: 259px">
+              <img class="pull-left width-3" src="<%= resource.image_link(:zoom => 2) %>" alt="Resource item" width= "198px">
             </div>
             <div class="file-name">
               <a href="<%= resource.preview_link %>">
@@ -13,7 +13,6 @@
               <br />
               <small>
                  <%= resource.published_date %> <br />
-                 <%= resource.description %>
               </small>
             </div>
         </a>
