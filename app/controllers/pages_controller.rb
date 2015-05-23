@@ -5,6 +5,7 @@ class PagesController < ApplicationController
 
   def search
     if params[:search]
+      @query_word = params[:search]
       @resources = GoogleBooks.search(
           "#{params[:search]}",
           {

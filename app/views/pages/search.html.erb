@@ -5,10 +5,10 @@
         <div class="ibox float-e-margins">
           <div class="ibox-content">
             <h2>
-                2,160 results found for: <span class="text-navy">“Ruby”</span>
             </h2>
             <%= render partial: 'pages/search_form' %>
             <% if @resources %>
+              <%= @resources.count %> results found for: <span class="text-navy">“<%= @query_word %>”</span>
               <% @resources.each do |resource| %>
                 <%= render partial: 'pages/search_item', locals: { resource: resource }  %>
               <% end %>
