@@ -1,8 +1,12 @@
 <div class="hr-line-dashed"></div>
 <div class="search-result">
-    <h3><a href="#">The Ruby Programming Language</a></h3>
-    <a href="#" class="search-link">https://books.google.es/books?id=jcUbTcr5XWwC&printsec=frontcover&dq=ruby+google+books&hl=es&sa=X&ei=N0dgVZmTMsyrU9iRgKAC&ved=0CCwQ6AEwAA</a>
+    <img class="pull-left width-3" src="<%= resource.image_link(:zoom => 3) %>" alt="">
+    <h3>
+      <a href="<%= resource.preview_link %>">
+        <%= resource.title %>
+      </a>
+    </h3>
     <p>
-      This book begins with a quick-start tutorial to the language, and then explains the language in detail from the bottom up: from lexical and syntactic structure to datatypes to expressions and statements and on through methods, blocks, ...
+      <%= resource.description %>
     </p>
 </div>
