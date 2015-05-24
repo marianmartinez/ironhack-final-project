@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: 'pages#index'
   get "help"  => "static_pages#help",     :as => "help"
   get "tracks"  => "tracks#index",        :as => "tracks"
+  get "goals"  => "goals#index",          :as => "goals"
   get "search"  => "sources#search",      :as => "search_page"
   post "search"  => "sources#search",     :as => "search"
   get "login"   => "sessions#new",        :as => "login"
