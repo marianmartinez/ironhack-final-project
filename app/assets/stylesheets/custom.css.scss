@@ -37,5 +37,11 @@
 // Media query style
 @import "base/media";
 
+// Steps.js css
+@import "steps/jquery.steps";
+
+// Dadepicker.js css
+@import "datapicker/datepicker3";
+
 // Custom style to override base style
 @import "base/custom";

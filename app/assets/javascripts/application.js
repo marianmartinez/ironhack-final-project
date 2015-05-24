@@ -12,8 +12,24 @@
 //
 //= require jquery/jquery-2.1.1.js
 //= require bootstrap-sprockets
-//= require metisMenu/jquery.metisMenu.js
-//= require pace/pace.min.js
-//= require peity/jquery.peity.min.js
-//= require slimscroll/jquery.slimscroll.min.js
-//= require skillstep.js
+//= require metisMenu/jquery.metisMenu
+//= require pace/pace.min
+//= require peity/jquery.peity.min
+//= require slimscroll/jquery.slimscroll.min
+//= require datapicker/bootstrap-datepicker
+//= require forms
+//= require skillstep
+
+$(function() {
+  var date = new Date();
+  $('#wizard-datepicker .input-group.date').datepicker({
+      todayBtn: "linked",
+      format: "dd/mm/yyyy",
+      keyboardNavigation: false,
+      forceParse: false,
+      calendarWeeks: true,
+      autoclose: true,
+      startDate: date,
+      todayHighlight: true
+  });
+ });
