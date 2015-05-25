@@ -39,6 +39,11 @@
           <i class="fa fa-university"></i> <span class="nav-label">Library</span>
           <% end %>
       </li>
+      <li class="<%= 'active' if current_page?('/search') %>">
+          <%= link_to "/search" do %>
+          <i class="fa fa-search"></i> <span class="nav-label">Discover</span>
+          <% end %>
+      </li>
     </ul>
   </div>
 </nav>
