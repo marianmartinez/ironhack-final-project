@@ -34,6 +34,11 @@
           <i class="fa fa-paper-plane-o"></i> <span class="nav-label">Goals</span>
           <% end %>
       </li>
+      <li class="<%= 'active' if current_page?('/library') %>">
+          <%= link_to "/library" do %>
+          <i class="fa fa-university"></i> <span class="nav-label">Library</span>
+          <% end %>
+      </li>
     </ul>
   </div>
 </nav>

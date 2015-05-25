@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root to: 'pages#index'
   get "help"  => "static_pages#help",     :as => "help"
+  get "library"  => "sources#index",     :as => "library"
   get "tracks"  => "tracks#index",        :as => "tracks"
   get "goals"  => "goals#index",          :as => "goals"
   get "search"  => "sources#search",      :as => "search_page"

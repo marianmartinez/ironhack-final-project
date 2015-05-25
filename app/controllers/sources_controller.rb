@@ -1,5 +1,9 @@
 class SourcesController < ApplicationController
 
+  def index
+
+  end
+
   def search
     if params[:search]
       @query_word = params[:search]
