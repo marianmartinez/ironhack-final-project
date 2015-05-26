@@ -1,12 +1,33 @@
 <div class="file-box">
-    <div class="file">
-
-      <a href="<%= resource.preview_link %>" target="_blank">
+    <div class="file source-item">
 
         <span class="corner"></span>
 
         <div class="image" style="height: 259px">
-          <img class="pull-left width-3" src="<%= resource.image_link(:zoom => 2) %>" alt="Resource item" width= "198px">
+
+          <figure>
+              <img class="pull-left width-3 resource-image-link" src="<%= resource.image_link(:zoom => 2) %>" alt="Resource item" width= "198px">
+              <figcaption>
+                <a href="<%= resource.preview_link %>" target="_blank" class="caption-links"><i class="fa fa-external-link"></i></a>
+                <a href="#" class="caption-links add-source"><i class="fa fa-plus-square-o"></i></a>
+              </figcaption>
+           </figure>
+
+           <div class="overlay">
+             <h2 class="new_source">Goal:</h2>
+             <%= form_for @source, :html => {:class => "add_source"} do | f | %>
+                <div class="form-group">
+                   <%= grouped_collection_select(:source, :goal_id, @tracks, :goals, :name, :id, :name,  {}, { :class => "form-control"}) %>
+                </div>
+                <%= f.hidden_field :image, :value => resource.image_link(:zoom => 2) %>
+                <%= f.hidden_field :url, :value => resource.preview_link %>
+                <%= f.hidden_field :name, :value => resource.title %>
+                <%= f.hidden_field :kind, :value => "book" %>
+                <%= f.submit "Add", class: "btn btn-primary" %>
+            <% end %>
+            <a class="close-overlay hidden">x</a>
+           </div>
+
         </div>
 
         <div class="file-name" style="height: 107px">
@@ -16,8 +37,6 @@
              <%= resource.published_date %> <br />
           </small>
         </div>
-
-       </a>
 
     </div>
 </div>

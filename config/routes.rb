@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root to: 'pages#index'
   get "help"  => "static_pages#help",     :as => "help"
   get "library"  => "sources#index",     :as => "library"
@@ -9,13 +10,15 @@ Rails.application.routes.draw do
   get "login"   => "sessions#new",        :as => "login"
   get "logout"  => "sessions#destroy",    :as => "logout"
   get "signup"  => "users#new",           :as => "signup"
+
   resources :sessions, only: [:create]
-  resources :users do
-    resources :tracks do
-      resources :goals do
-        resources :sources
-      end
+  resources :users
+  resources :tracks do
+    resources :goals do
+      resources :sources
     end
   end
+
+  resources :sources
 
 end

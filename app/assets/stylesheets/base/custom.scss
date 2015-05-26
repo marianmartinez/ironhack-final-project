@@ -16,3 +16,42 @@
   font-size: 12px;
   font-family: "roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+figure {
+    margin: 0;
+}
+figure img {
+    max-width: 100%;
+    display: block;
+    position: relative;
+}
+figcaption {
+    position: absolute;
+    top: 30%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    color: #fff;
+}
+figure:hover img {
+    opacity: 0.25;
+    -webkit-transition: all .8s ease;
+    -moz-transition: all .8s ease;
+    transition: all .8s ease;
+}
+
+figure:hover  figcaption{
+    opacity: 1;
+    -webkit-transition: all .8s ease;
+    -moz-transition: all .8s ease;
+    transition: all .8s ease;
+}
+a.caption-links {
+    color: #fff;
+    font-size: 30px;
+    padding: 15px;
+}
+
+a.caption-links:hover {
+    color: #fff;
+}

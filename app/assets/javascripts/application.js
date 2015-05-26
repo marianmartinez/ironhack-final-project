@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery/jquery-2.1.1.js
+//= require modernizr/modernizr
 //= require bootstrap-sprockets
 //= require metisMenu/jquery.metisMenu
 //= require pace/pace.min

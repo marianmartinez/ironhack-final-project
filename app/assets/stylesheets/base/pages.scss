@@ -394,7 +394,7 @@ ul.notes li div {
 .file {
   border: 1px solid $border-color;
   padding: 0;
-  background-color: white;
+  background-color: #1a7bb9;
   position: relative;
   margin-bottom: 20px;
   margin-right: 20px;
@@ -431,8 +431,10 @@ ul.notes li div {
 
 .file .file-name {
   padding: 10px;
-  background-color: #f8f8f8;
+  background-color: #fff;
   border-top: 1px solid $border-color;
+  color: #000;
+  font-weight: 500;
 }
 
 .file-name small {

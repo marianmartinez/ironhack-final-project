@@ -2,11 +2,9 @@ class Goal < ActiveRecord::Base
   belongs_to :track
   has_many :sources, dependent: :destroy
   validates :name, presence: true,
-                   length: {maximum: 30},
-                   format: {with: /\A[a-zA-Z0-9\s]+\z/ }
+                   length: {maximum: 30}
   validates :description, presence: true,
-                   length: {maximum: 250},
-                   format: {with: /\A[a-zA-Z0-9\s]+\z/ }
+                   length: {maximum: 250}
   validates :goal_date, presence: true
-  validates :accomplished, presence: true, numericality: true
+  validates :accomplished, inclusion: { in: [true, false] }
 end
