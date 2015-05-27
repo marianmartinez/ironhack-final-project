@@ -2,7 +2,7 @@
   <nav class="navbar navbar-fixed-top" role="navigation" style="margin-bottom: 0">
     <div class="navbar-header">
         <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
-        <%= form_tag(search_page_path, method: :post, class: 'navbar-form-custom') do %>
+        <%= form_tag(search_path, method: :post, class: 'navbar-form-custom') do %>
             <div class="form-group">
              <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: 'What do you want to learn?', id: 'top-search' %>
             </div>
