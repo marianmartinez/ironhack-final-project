@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :tracks, dependent: :destroy
+  has_many :goals, through: :tracks
 
   authenticates_with_sorcery!
 
