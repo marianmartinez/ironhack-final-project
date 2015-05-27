@@ -12,10 +12,17 @@ class SourcesController < ApplicationController
 
     if @source.save
       flash[:success] = "Source created successfully"
-      redirect_to search_path
+
+      respond_to do |format|
+        format.html { redirect_to search_path }
+        format.js { render current_user.sources.count }
+      end
     else
       flash.now[:error] = "Error. Try again"
-      render 'search'
+      respond_to do |format|
+        format.html { render 'search' }
+        format.js { render :unprocesable_entity }
+      end
     end
 
   end
