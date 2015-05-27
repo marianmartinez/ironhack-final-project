@@ -7,13 +7,14 @@ class SourcesController < ApplicationController
   end
 
   def create
-    #raise params.inspect
-    
+    @goal = Goal.find params[:source][:goal_id]
+    @source = @goal.sources.new entry_params
+
     if @source.save
-      flash[:notice] = "Source created successfully"
+      flash[:success] = "Source created successfully"
       redirect_to search_page_path
     else
-      flash.now[:danger] = "Error. Try again"
+      flash.now[:error] = "Error. Try again"
       render 'search'
     end
 

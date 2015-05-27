@@ -8,6 +8,7 @@
       <p>Login in.</p>
 
       <%= form_tag sessions_path, class: 'm-t', method: :post do %>
+        <%= render 'shared/error_messages', object: @user %>
         <div class="form-group">
           <%= email_field_tag :email, nil, class: 'form-control', placeholder: 'Email', required: true %>
         </div>

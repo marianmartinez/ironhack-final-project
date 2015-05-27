@@ -38,6 +38,10 @@ gem 'fog',                     '1.23.0'
 
 #GoogleBooks Ruby wrapper
 gem 'googlebooks'
+
+#Toastr Notifications to replace flash
+gem 'toastr-rails'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
