@@ -11,7 +11,11 @@ class GoalsController < ApplicationController
   end
 
   def create
-    
+    if @goal.save
+      # success
+    else
+      # failure
+    end
   end
 
   private
@@ -34,7 +38,7 @@ class GoalsController < ApplicationController
     if params[:id] # show, edit, update, destroy
       @goal = @goals.find_by(id: params[:id])
     else # new, create
-      @goal = @goals.build(goal_params)
+      @goal = params[:goal] ? @goals.build(goal_params) : @goals.build
     end
   end
 
