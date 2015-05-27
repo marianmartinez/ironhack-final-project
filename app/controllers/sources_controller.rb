@@ -12,7 +12,7 @@ class SourcesController < ApplicationController
 
     if @source.save
       flash[:success] = "Source created successfully"
-      redirect_to search_page_path
+      redirect_to search_path
     else
       flash.now[:error] = "Error. Try again"
       render 'search'
@@ -21,19 +21,10 @@ class SourcesController < ApplicationController
   end
 
   def search
-    if params[:search]
-      @query_word = params[:search]
-      @resources = GoogleBooks.search(
-          "#{params[:search]}",
-          {
-           :count => 10, :page => 1,
-           :api_key => 'AIzaSyCGZFL2tOiMcg3G5V4KC6ViLQcnrt29Jo4'
-          }
-        )
-    else
-      @resources = []
-    end
+    @query_word = params[:search]
+    @resources = Search.query(params[:search])
   end
+
   private
 
   def set_source
