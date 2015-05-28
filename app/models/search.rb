@@ -1,7 +1,7 @@
 class Search
   def self.query(term, options = {})
     return [] if term.blank?
-    GoogleBooks.search("#{term}", self.default_options.merge(options))
+    GoogleBooks.search("#{term}", default_options.merge(options))
   end
 
   private

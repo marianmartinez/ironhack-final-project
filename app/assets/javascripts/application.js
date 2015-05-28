@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery/jquery-2.1.1.js
+//= require jquery_ujs
 //= require modernizr/modernizr
 //= require bootstrap-sprockets
 //= require validate/jquery.validate.min

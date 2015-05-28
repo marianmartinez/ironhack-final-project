@@ -18,7 +18,7 @@
                 <%= form_for [@goal, @source], remote: true,
                   :html => {:class => "add_source"} do | f | %>
 
-                 <%= resource.errors %>
+                 <%= @source.errors %>
 
                 <div class="form-group">
                    <%= grouped_collection_select(:source, :goal_id, @tracks, :goals, :name, :id, :name,  {}, { :class => "form-control"}) %>
@@ -44,3 +44,15 @@
 
     </div>
 </div>
+<script>
+
+$( document ).ready(function() {
+  $(".add_source").on("ajax:success", function(e, data, status, xhr) {
+      var source = $(this).closest('.file-box');
+      source.hide();
+      $('#sources-count').html(data);
+    }).on("ajax:error", function(e, xhr, status, error) {
+      $("#new_source").append("<p>ERROR</p>");
+    });
+});
+</script>

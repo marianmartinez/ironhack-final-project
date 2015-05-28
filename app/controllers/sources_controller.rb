@@ -3,10 +3,11 @@ class SourcesController < ApplicationController
   before_action :set_tracks, only: [:search, :new, :create]
 
   def index
-
+    @sources = Source.all.order(created_at: :desc)
   end
 
   def create
+    #raise params.inspect
     @goal = Goal.find params[:source][:goal_id]
     @source = @goal.sources.new entry_params
 
@@ -27,8 +28,17 @@ class SourcesController < ApplicationController
   end
 
   def search
+    #raise params.inspect
     @query_word = params[:search]
-    @resources = Search.query(params[:search])
+    #raise @query_word.inspect
+    @sources = Search.query(params[:search])
+  end
+
+  def destroy
+      @goal = Goal.find params[:goal_id]
+      @entry = @project.entries.find params[:id]
+      @entry.destroy
+      redirect_to project_entries_path(@project)
   end
 
   private
