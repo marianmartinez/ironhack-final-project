@@ -15,7 +15,11 @@
 
            <div class="overlay">
              <h2 class="new_source">Goal:</h2>
-             <%= form_for [@goal, @source], :html => {:class => "add_source"} do | f | %>
+                <%= form_for [@goal, @source], remote: true,
+                  :html => {:class => "add_source"} do | f | %>
+
+                 <%= resource.errors %>
+
                 <div class="form-group">
                    <%= grouped_collection_select(:source, :goal_id, @tracks, :goals, :name, :id, :name,  {}, { :class => "form-control"}) %>
                 </div>

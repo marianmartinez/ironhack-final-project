@@ -4,14 +4,12 @@ class GoalsController < ApplicationController
   before_action :set_goal, only: %i(new create edit update destroy)
 
   def index
-
   end
 
   def new
   end
 
   def create
-    
   end
 
   private
@@ -34,7 +32,7 @@ class GoalsController < ApplicationController
     if params[:id] # show, edit, update, destroy
       @goal = @goals.find_by(id: params[:id])
     else # new, create
-      @goal = @goals.build(goal_params)
+      @goal = params[:goal] ? @goals.build(goal_params) : @goals.build
     end
   end
 

@@ -22,6 +22,10 @@ class User < ActiveRecord::Base
     find_by email: 'marian.mtnz@gmail.com'
   end
 
+  def sources
+    goals.map{ |goal| goal.sources }.flatten
+  end
+
   private
 
   def picture_size
