@@ -15,7 +15,7 @@ class SourcesController < ApplicationController
       flash[:success] = "Source created successfully"
       respond_to do |format|
         format.html { redirect_to search_path }
-        format.js { render current_user.sources.count }
+        format.js { render json: current_user.sources.count }
       end
     else
       flash.now[:error] = "Error. Try again"
@@ -35,10 +35,9 @@ class SourcesController < ApplicationController
   end
 
   def destroy
-      @goal = Goal.find params[:goal_id]
-      @entry = @project.entries.find params[:id]
-      @entry.destroy
-      redirect_to project_entries_path(@project)
+      @source = Source.find params[:id]
+      @source.destroy
+      redirect_to sources_path
   end
 
   private

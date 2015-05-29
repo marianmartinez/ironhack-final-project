@@ -30,7 +30,10 @@
                       <td><%= link_to "<strong>#{source.name}</strong>".html_safe, source.url, class: 'source' %></a></td>
                       <td><%= source.created_at.strftime('%d/%m/%Y') %></td>
                       <td class="project-actions">
-                          <a href="#" class="btn btn-white btn-sm"><i class="fa fa-trash"></i> Delete </a>
+                          <!-- <%= link_to sources_path(source), method: "delete", class:"btn btn-white btn-sm" do %>
+                             <i class="fa fa-trash"></i> Delete
+                          <% end %> -->
+                          <%= link_to "Delete", source_path(source), method: :delete, class:"btn btn-white btn-sm" %>
                       </td>
                     </tr>
                   <% end %>
