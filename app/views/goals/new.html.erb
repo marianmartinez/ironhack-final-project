@@ -1,0 +1,17 @@
+<% if @goal.errors.any? %>
+  <ul>
+     <% @goal.errors.full_messages.each do |error_msg| %>
+      <li><%= error_msg %></li>
+     <% end %>
+  </ul>
+<% end %>
+
+<%= form_for [@track, @goal], html:{class: "well"} do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, class: "form-control" %>
+  <%= f.label :description %>
+  <%= f.text_field :description, class: "form-control" %>
+  <%= f.label :goal_date %>
+  <%= f.date_field :goal_date, class: "form-control" %>
+  <%= f.submit (@goal.new_record? ? 'Create Goal' : 'Update Goal') %>
+<% end %>

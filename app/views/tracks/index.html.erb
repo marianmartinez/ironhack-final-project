@@ -6,7 +6,7 @@
           <div class="ibox-title">
               <h5>Tracks</h5>
               <div class="ibox-tools">
-                  <a href="" class="btn btn-primary btn-xs">Create new Tracks</a>
+                <%= link_to 'Create new Tracks', new_track_path, class: 'btn btn-primary btn-xs' %>
               </div>
           </div>
           <div class="ibox-content">
@@ -16,38 +16,21 @@
                    <thead>
                        <tr>
                          <th>Name</th>
-                         <th>Progress</th>
-                         <th>Due Date</th>
                          <th></th>
                        </tr>
                    </thead>
                    <tbody>
-
+                     <% @tracks.each do |track| %>
                        <tr>
                          <td class="Track-title">
-                             <a href="">Web development</a>
-                             <br />
-                             <small>Created 14.08.2014</small>
-                         </td>
-                         <td class="project-completion">
-                             <small>Completion with: 28%</small>
-                             <div class="progress progress-mini">
-                                 <div style="width: 28%;" class="progress-bar"></div>
-                             </div>
-                         </td>
-                         <td class="resource-due-date">
-                           <i class="fa fa-calendar"></i> 14.08.2014
+                           <%= link_to "<strong>#{track.name}</strong>".html_safe, track_path(track), id: "track=-#{track.id}" %></a>
                          </td>
                          <td class="project-actions">
-                           <% track.goals.each do |g| %>
-                              <%= link_to g.name, track_goal_path(g) %>
-                           <% end %>
-
-                             <%= link_to "+", new_track_goal_path, track %>
                              <a href="#" class="btn btn-white btn-sm"><i class="fa fa-pencil"></i> Edit </a>
                              <a href="#" class="btn btn-white btn-sm"><i class="fa fa-trash"></i> Delete </a>
                          </td>
                        </tr>
+                       <% end %>
                    </tbody>
                  </table>
                </div>
