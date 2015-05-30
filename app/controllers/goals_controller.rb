@@ -4,24 +4,22 @@ class GoalsController < ApplicationController
   before_action :set_goal, only: %i(new create edit update destroy)
 
   def index
-    @track = Track.find params[:track_id]
 		@goals = @track.goals.order(goal_date: :desc)
   end
 
   def new
-      @track = Track.find params[:track_id]
-	    @goal = @track.goals.new
+	  @goal = @track.goals.new
 	end
+
 	def create
-      @track = Track.find params[:track_id]
-	    @goal = @track.goals.new goal_params
-	    if @goal.save
-	    	flash[:notice] = "Goal created successfully"
-	    	redirect_to track_goals_path(@track)
-	    else
-	    	flash.now[:alert] = "Error"
-	    	render 'new'
-	    end
+    @goal = @track.goals.new goal_params
+    if @goal.save
+    	flash[:notice] = "Goal created successfully"
+    	redirect_to track_goals_path(@track)
+    else
+    	flash.now[:alert] = "Error"
+    	render 'new'
+    end
 	end
 
   private
