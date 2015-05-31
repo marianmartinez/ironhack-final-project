@@ -4,26 +4,43 @@ class TracksController < ApplicationController
     @tracks = Track.all
   end
 
-  def show
-		unless @track = Track.find_by(id: params[:id])
-		  render 'track_not_found'    
-		end
-	end
-
   def new
-      @track = Track.new
+    @track = Track.new
   end
 
   def create
-      @track = Track.new entry_params
-      if @track.save
-        redirect_to tracks_path
+    @track = Track.new entry_params
+    @track.user = current_user
+    if @track.save
+      redirect_to tracks_path
+    else
+      render 'new'
+    end
+  end
+
+  def edit
+		@track = Track.find params[:id]
+  end
+
+  def update
+    @track = Track.find params[:id]
+      if @track.update_attributes(entry_params)
+      	flash[:notice] = "Track updated successfully"
+      	redirect_to tracks_path
       else
-        render 'new'
+      	flash.now[:alert] = "Error"
+        render 'edit'
       end
   end
 
+  def destroy
+      @track = Track.find_by(id: params[:id])
+      @track.destroy
+      redirect_to tracks_path
+  end
+
   private
+
   def entry_params
       params.require(:track).permit(:name)
   end

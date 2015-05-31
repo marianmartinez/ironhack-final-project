@@ -4,9 +4,9 @@
 
         <div class="ibox">
           <div class="ibox-title">
-              <h5>Tracks</h5>
+              <h5>Learning Tracks</h5>
               <div class="ibox-tools">
-                <%= link_to 'Create new Tracks', new_track_path, class: 'btn btn-primary btn-xs' %>
+                <%= link_to 'Create new Track', new_track_path, class: 'btn btn-primary btn-xs' %>
               </div>
           </div>
           <div class="ibox-content">
@@ -23,11 +23,15 @@
                      <% @tracks.each do |track| %>
                        <tr>
                          <td class="Track-title">
-                           <%= link_to "<strong>#{track.name}</strong>".html_safe, track_path(track), id: "track=-#{track.id}" %></a>
+                           <%= link_to "<strong>#{track.name}</strong>".html_safe, track_goals_path(track), id: "track=-#{track.id}" %></a>
                          </td>
                          <td class="project-actions">
-                             <a href="#" class="btn btn-white btn-sm"><i class="fa fa-pencil"></i> Edit </a>
-                             <a href="#" class="btn btn-white btn-sm"><i class="fa fa-trash"></i> Delete </a>
+                             <%= link_to edit_track_path(track), class:"btn btn-white btn-sm" do %>
+                                <i class="fa fa-pencil"></i> Edit
+                             <% end %>
+                              <%= link_to track_path(track), method: :delete, class:"btn btn-white btn-sm", data: { confirm: 'Are you sure?'} do %>
+                                 <i class="fa fa-trash"></i> Delete
+                              <% end %>
                          </td>
                        </tr>
                        <% end %>
