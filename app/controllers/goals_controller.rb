@@ -23,6 +23,11 @@ class GoalsController < ApplicationController
     end
 	end
 
+  def destroy
+    @goal.destroy
+    redirect_to track_goals_path(@track)
+  end
+
   private
 
   def set_track
