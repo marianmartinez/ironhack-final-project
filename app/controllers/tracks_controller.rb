@@ -1,16 +1,16 @@
 class TracksController < ApplicationController
+  before_action :set_track, only: %i(edit update destroy)
 
   def index
-    @tracks = Track.all
+    @tracks = current_user.tracks.all
   end
 
   def new
-    @track = Track.new
+    @track = current_user.tracks.build
   end
 
   def create
-    @track = Track.new entry_params
-    @track.user = current_user
+    @track = current_user.tracks.build(entry_params)
     if @track.save
       redirect_to tracks_path
     else
@@ -19,27 +19,31 @@ class TracksController < ApplicationController
   end
 
   def edit
-		@track = Track.find params[:id]
+
   end
 
   def update
-    @track = Track.find params[:id]
-      if @track.update_attributes(entry_params)
-      	flash[:notice] = "Track updated successfully"
-      	redirect_to tracks_path
-      else
-      	flash.now[:alert] = "Error"
-        render 'edit'
-      end
+    if @track.update_attributes(entry_params)
+    	flash[:success] = "Track updated successfully"
+    	redirect_to tracks_path
+    else
+    	flash.now[:alert] = "Error"
+      render 'edit'
+    end
   end
 
   def destroy
-      @track = Track.find_by(id: params[:id])
-      @track.destroy
-      redirect_to tracks_path
+    @track.destroy
+    redirect_to tracks_path
   end
 
   private
+
+  def set_track
+    if params[:id]
+      @track = current_user.tracks.find_by(id: params[:id])
+    end
+  end
 
   def entry_params
       params.require(:track).permit(:name)
