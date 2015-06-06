@@ -8,7 +8,6 @@ class GoalsController < ApplicationController
   end
 
   def new
-    @track = current_user.tracks.find(params[:track_id])
 	  @goal = @track.goals.new
 	end
 
